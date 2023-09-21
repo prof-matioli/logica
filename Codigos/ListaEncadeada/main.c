@@ -9,12 +9,23 @@ struct lista{
 
 typedef struct lista Lista;
 
+//cabecalho das funcoes
+void libera (Lista* l);
+int vazia (Lista* l);
+Lista * inicializa();
+Lista* insere (Lista* l, int i);
+void imprime (Lista* l);
+Lista* busca (Lista* l, int v);
+Lista* busca (Lista* l, int v);
+Lista* retira (Lista* l, int v);
+void libera (Lista* l);
+
 //funcao de inicializacao
 Lista * inicializa(){
     return NULL;
 }
 
-/* inser��o no in�cio: retorna a lista atualizada */
+/* insercao no inicio: retorna a lista atualizada */
 Lista* insere (Lista* l, int i)
 {
     Lista* novo = (Lista*) malloc(sizeof(Lista));
@@ -23,26 +34,20 @@ Lista* insere (Lista* l, int i)
     return novo;
 }
 
-/* fun��o imprime: imprime valores dos elementos */
+/* funcao imprime: imprime valores dos elementos */
 void imprime (Lista* l)
 {
-    Lista* p; /* vari�vel auxiliar para percorrer a lista */
+    Lista* p; /* variavel auxiliar para percorrer a lista */
     if(vazia(l)){
         printf("Lista vazia!");
-        return NULL;
+        return;
     }
 
     for (p = l; p != NULL; p = p->prox)
         printf("info = %d\n", p->info);
 }
 
-/* fun��o vazia: retorna 1 se vazia ou 0 se n�o vazia */
-int vazia (Lista* l)
-{
-    return (l == NULL);
-}
-
-/* fun��o busca: busca um elemento na lista */
+/* funcao busca: busca um elemento na lista */
 Lista* busca (Lista* l, int v)
 {
     Lista* p;
@@ -55,10 +60,10 @@ Lista* busca (Lista* l, int v)
         if (p->info == v)
             return p;
     }
-    return NULL; /* n�o achou o elemento */
+    return NULL; /* nao achou o elemento */
 }
 
-/* fun��o retira: retira elemento da lista */
+/* funcao retira: retira elemento da lista */
 Lista* retira (Lista* l, int v) {
     Lista* ant = NULL; /* ponteiro para elemento anterior */
     Lista* p = l; /* ponteiro para percorrer a lista*/
@@ -69,7 +74,7 @@ Lista* retira (Lista* l, int v) {
     }
     /* verifica se achou elemento */
     if (p == NULL)
-        return l; /* n�o achou: retorna lista original */
+        return l; /* nao achou: retorna lista original */
     /* retira elemento */
     if (ant == NULL) {
         /* retira elemento do inicio */
@@ -87,22 +92,27 @@ void libera (Lista* l)
 {
     Lista* p = l;
     while (p != NULL) {
-        Lista* t = p->prox; /* guarda refer�ncia para o pr�ximo elemento
+        Lista* t = p->prox; /* guarda referencia para o proximo elemento
         */
-        free(p); /* libera a mem�ria apontada por p */
-        p = t; /* faz p apontar para o pr�ximo */
+        free(p); /* libera a memoria apontada por p */
+        p = t; /* faz p apontar para o proximo */
     }
+}
+
+/* funcao vazia: retorna 1 se vazia ou 0 se nao vazia */
+int vazia (Lista* l)
+{
+    return (l == NULL);
 }
 
 int main()
 {
-    Lista* l; /* declara uma lista n�o inicializada */
+    Lista* l; /* declara uma lista, ainda nao inicializada */
     int v=0;
-    Lista * p=NULL;
 
     setlocale(LC_ALL, "Portuguese");
 
-    l = inicializa();
+    l = inicializa(); // inicializa a lista
     do{
         system("cls");
         printf("Valor : ");
@@ -116,10 +126,10 @@ int main()
 
     printf("Qual elemento excluir:");
     scanf("%d",&v);
-    l = retira(l,v);
+    l = retira(l,v); //retira um elemento da lista, se existir
     imprime(l);
 
-    libera(l);
+    libera(l); //libera todos os elementos da lista
 
     return 0;
 }

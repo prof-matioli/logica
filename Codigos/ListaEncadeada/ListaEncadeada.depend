@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1695315871 source:c:\aulas\logicaed\codigos\listaencadeada\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+
