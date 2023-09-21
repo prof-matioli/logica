@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
 struct lista{
     int info;
@@ -13,7 +14,7 @@ Lista * inicializa(){
     return NULL;
 }
 
-/* inserção no início: retorna a lista atualizada */
+/* inserï¿½ï¿½o no inï¿½cio: retorna a lista atualizada */
 Lista* insere (Lista* l, int i)
 {
     Lista* novo = (Lista*) malloc(sizeof(Lista));
@@ -22,10 +23,10 @@ Lista* insere (Lista* l, int i)
     return novo;
 }
 
-/* função imprime: imprime valores dos elementos */
+/* funï¿½ï¿½o imprime: imprime valores dos elementos */
 void imprime (Lista* l)
 {
-    Lista* p; /* variável auxiliar para percorrer a lista */
+    Lista* p; /* variï¿½vel auxiliar para percorrer a lista */
     if(vazia(l)){
         printf("Lista vazia!");
         return NULL;
@@ -35,13 +36,13 @@ void imprime (Lista* l)
         printf("info = %d\n", p->info);
 }
 
-/* função vazia: retorna 1 se vazia ou 0 se não vazia */
+/* funï¿½ï¿½o vazia: retorna 1 se vazia ou 0 se nï¿½o vazia */
 int vazia (Lista* l)
 {
     return (l == NULL);
 }
 
-/* função busca: busca um elemento na lista */
+/* funï¿½ï¿½o busca: busca um elemento na lista */
 Lista* busca (Lista* l, int v)
 {
     Lista* p;
@@ -54,10 +55,10 @@ Lista* busca (Lista* l, int v)
         if (p->info == v)
             return p;
     }
-    return NULL; /* não achou o elemento */
+    return NULL; /* nï¿½o achou o elemento */
 }
 
-/* função retira: retira elemento da lista */
+/* funï¿½ï¿½o retira: retira elemento da lista */
 Lista* retira (Lista* l, int v) {
     Lista* ant = NULL; /* ponteiro para elemento anterior */
     Lista* p = l; /* ponteiro para percorrer a lista*/
@@ -68,7 +69,7 @@ Lista* retira (Lista* l, int v) {
     }
     /* verifica se achou elemento */
     if (p == NULL)
-        return l; /* não achou: retorna lista original */
+        return l; /* nï¿½o achou: retorna lista original */
     /* retira elemento */
     if (ant == NULL) {
         /* retira elemento do inicio */
@@ -86,18 +87,20 @@ void libera (Lista* l)
 {
     Lista* p = l;
     while (p != NULL) {
-        Lista* t = p->prox; /* guarda referência para o próximo elemento
+        Lista* t = p->prox; /* guarda referï¿½ncia para o prï¿½ximo elemento
         */
-        free(p); /* libera a memória apontada por p */
-        p = t; /* faz p apontar para o próximo */
+        free(p); /* libera a memï¿½ria apontada por p */
+        p = t; /* faz p apontar para o prï¿½ximo */
     }
 }
 
 int main()
 {
-    Lista* l; /* declara uma lista não inicializada */
+    Lista* l; /* declara uma lista nï¿½o inicializada */
     int v=0;
     Lista * p=NULL;
+
+    setlocale(LC_ALL, "Portuguese");
 
     l = inicializa();
     do{
