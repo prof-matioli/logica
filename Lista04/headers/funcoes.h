@@ -14,8 +14,6 @@ struct lista * constroi(int n, int * v);
 struct lista * retira_prefixo(struct lista * l, int n);
 void imprimeLista(struct lista * l);
 
-
-int testaSepara_UltimoElementoLista(struct lista *l);
-int testaSepara_PrimeiroElementoLista(struct lista *l);
-int testaRetiraPrefixo_PrimeiroElementoLista(Lista *l);
+int testaUltimoElementoLista(struct lista *l);
+int testaPrimeiroElementoLista(struct lista *l);
 #endif // FUNCOES_H_INCLUDED

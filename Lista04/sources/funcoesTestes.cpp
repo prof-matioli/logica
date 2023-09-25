@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../headers/funcoes.h"
 
-int testaSepara_UltimoElementoLista(Lista *l)
+int testaUltimoElementoLista(Lista *l)
 {
     Lista *p;
     int ult = 0;
@@ -12,17 +12,7 @@ int testaSepara_UltimoElementoLista(Lista *l)
     return ult;
 }
 
-int testaSepara_PrimeiroElementoLista(Lista *l)
-{
-    Lista *p=l;
-    int info=0;
-    if(p!=NULL)
-        info = p->info;
-
-    return info;
-}
-
-int testaRetiraPrefixo_PrimeiroElementoLista(Lista *l)
+int testaPrimeiroElementoLista(Lista *l)
 {
     Lista *p=l;
     int info=0;

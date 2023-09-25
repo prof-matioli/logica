@@ -1,21 +1,21 @@
 # depslib dependency file v1.0
-1695484430 source:c:\aulas\logicaed\lista04\main.cpp
+1695649017 source:c:\aulas\logicaed\lista04\main.cpp
 	<iostream>
 	"headers/funcoes.h"
 	"UnitTestPP.h"
 
-1695648385 c:\aulas\logicaed\lista04\headers\funcoes.h
+1695649433 c:\aulas\logicaed\lista04\headers\funcoes.h
 
-1695484135 source:c:\aulas\logicaed\lista04\sources\funcoes.cpp
+1695649298 source:c:\aulas\logicaed\lista04\sources\funcoes.cpp
 	<iostream>
 	<string.h>
 	"../headers/funcoes.h"
 
-1695647406 source:c:\aulas\logicaed\lista04\sources\funcoestestes.cpp
+1695649567 source:c:\aulas\logicaed\lista04\sources\funcoestestes.cpp
 	<iostream>
 	"../headers/funcoes.h"
 
-1695647141 source:c:\aulas\logicaed\lista04\tests\tests.cpp
+1695649669 source:c:\aulas\logicaed\lista04\tests\tests.cpp
 	"UnitTestPP.h"
 	"../headers/funcoes.h"
 
