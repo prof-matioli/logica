@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1696511351 source:c:\aulas\logica\pilha\main.cpp
+	<iostream>
+	"headers/pilha.h"
+
+1696511013 c:\aulas\logica\pilha\headers\pilha.h
+
+1696511372 source:c:\aulas\logica\pilha\sources\pilha.cpp
+	<iostream>
+	<stdlib.h>
+	"../headers/pilha.h"
+
