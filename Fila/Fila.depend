@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1696524769 source:c:\aulas\replogica\fila\main.cpp
+	<iostream>
+	"headers/fila.h"
+
+1696524655 c:\aulas\replogica\fila\headers\fila.h
+
+1696524792 source:c:\aulas\replogica\fila\sources\fila.cpp
+	<iostream>
+	"../headers/fila.h"
+
