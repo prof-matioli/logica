@@ -10,9 +10,14 @@ int main()
     insere(f,20.8);
     insere(f,21.2);
     insere(f,24.3);
-    cout << "Primeiro elemento: " << retira(f,NULL) << endl;
-    cout << "Segundo elemento: " << retira(f, NULL) << endl;
-    cout << "Configuracao atual da fila: " << endl;
+    printf("\n============== CONFIGURACAO ATUAL DA FILA =====================\n");
+    imprime(f);
+    printf("\n============== REALIZA ALGUMAS OPERACOES NA FILA =====================\n");
+    cout << "Retira um elemento: " << retira(f,NULL) << endl;
+    cout << "Retira um elemento: " << retira(f,NULL) << endl;
+    cout << "Insere novo elemento: 38.7" << endl;
+    insere(f,38.7);
+    printf("\n============== CONFIGURACAO ATUAL DA FILA =====================\n");
     imprime(f);
     libera(f);
     return 0;
