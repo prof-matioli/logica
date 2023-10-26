@@ -1,5 +1,5 @@
 # Lógica de Programação e Estruturas de Dados
-Material das aulas de Lógica e Estruturas de Dados  
+Material das aulas de **Lógica de Programação e Estruturas de Dados**  
 
 ## Neste Branch
 Códigos exemplo, utilizados em aula, sobre métodos de ordenação.  
