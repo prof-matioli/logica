@@ -5,14 +5,15 @@
 /* Ordenacao bolha - Versao 1 */
 void bolha1 (int n, int* v)
 {
-int i,j;
-for (i=n-1; i>=1; i--)
-    for (j=0; j<i; j++)
-        if (v[j]>v[j+1]) { /* troca */
-            int temp = v[j];
-            v[j] = v[j+1];
-            v[j+1] = temp;
-        }
+    int i,j;
+
+    for (i=n-1; i>=1; i--)
+        for (j=0; j<i; j++)
+            if (v[j]>v[j+1]) { /* troca */
+                int temp = v[j];
+                v[j] = v[j+1];
+                v[j+1] = temp;
+            }
 }
 
 /* Ordenacao bolha - Versao 2 - Otimizada*/
@@ -30,7 +31,7 @@ void bolha2 (int n, int* v)
                 troca = 1;
             }
         if (troca == 0) /* nao houve troca */
-        return;
+        break;
     }
 }
 
@@ -130,6 +131,7 @@ void rapida (int n, int* v)
         rapida(b,v);
         rapida(n-a,&v[a]);
     }
+
 }
 
 int comparador(int *x, int *y)
@@ -166,7 +168,7 @@ imprimeVetorFloat(int n, float *v)
     printf("\n\n");
 }
 
-const int NEL = 10;
+const int NEL = 50000;
 
 int main()
 {
@@ -175,13 +177,18 @@ int main()
     int vetor3[NEL];
     int vetor4[NEL];
     int vetor5[NEL];
-    float vetor6[NEL];// = {5.5,6.7,8.5,9.1,6.0,6.5,8.0,7.7,5.9,10.0};
+    float vetor6[NEL];
+
+    clock_t initTime = clock();
+    clock_t endTime = clock();
+    double time_spent = 0.0;
+
 
     srand(time(NULL));
 
     for(int i=0 ; i < NEL ; i++)
     {
-        vetor1[i]= rand() % 32767;
+        vetor1[i]= rand();
         vetor2[i]= rand();
         vetor3[i]= rand();
         vetor4[i]= rand();
@@ -189,23 +196,54 @@ int main()
         vetor6[i]= rand()/3.0;
     }
 
+    printf("[TAMANHO DO VETOR DE TESTES = %d]\n\n", NEL);
+
     printf("1.1) Metodo bolha (versao1)\n");
+    initTime = clock();
     bolha1(NEL,vetor1);
+    endTime = clock();
+    time_spent = (double)(endTime - initTime) / CLOCKS_PER_SEC;
+    printf("[Tempo = %7.3f]\n", time_spent);
+
     //imprimeVetorInt(sizeof(vetor1)/sizeof(int), vetor1);
     printf("1.2) Metodo bolha (versao2)\n");
+    initTime = clock();
     bolha2(NEL,vetor2);
+    endTime = clock();
+    time_spent = (double)(endTime - initTime) / CLOCKS_PER_SEC;
+    printf("[Tempo = %7.3f]\n", time_spent);
     //imprimeVetorInt(sizeof(vetor2)/sizeof(int), vetor2);
+/*
     printf("1.3) Metodo bolha (recursivo)\n");
+    initTime = clock();
     bolha_rec(NEL,vetor3);
+    endTime = clock();
+    time_spent = (double)(endTime - initTime) / CLOCKS_PER_SEC;
+    printf("[Tempo = %7.3f]\n", time_spent);
     //imprimeVetorInt(sizeof(vetor3)/sizeof(int), vetor3);
+*/
     printf("1.4) Metodo bolha (generico)\n");
+    initTime = clock();
     bolha_gen(NEL,vetor6,sizeof(float),compara_reais);
+    endTime = clock();
+    time_spent = (double)(endTime - initTime) / CLOCKS_PER_SEC;
+    printf("[Tempo = %7.3f]\n", time_spent);
     //imprimeVetorFloat(NEL, vetor6);
+
     printf("2.1) Metodo rapido(implementacao propria)\n");
+    initTime = clock();
     rapida(NEL,vetor4);
+    endTime = clock();
+    time_spent = (double)(endTime - initTime) / CLOCKS_PER_SEC;
+    printf("[Tempo = %7.3f]\n", time_spent);
     //imprimeVetorInt(sizeof(vetor4)/sizeof(int), vetor4);
+
     printf("2.2) Metodo qsort(padrao da linguagem C)\n");
+    initTime = clock();
     quick_sort(vetor5);
+    endTime = clock();
+    time_spent = (double)(endTime - initTime) / CLOCKS_PER_SEC;
+    printf("[Tempo = %7.3f]\n", time_spent);
     //imprimeVetorInt(sizeof(vetor4)/sizeof(int), vetor4);
 
     printf("\n===================F I M====================\n");
