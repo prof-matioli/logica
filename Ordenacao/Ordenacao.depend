@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1698328070 source:c:\aulas\logica\ordenacao\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
